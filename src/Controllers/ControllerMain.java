@@ -1,8 +1,5 @@
 package Controllers;
 
-import Models.Account;
-import Models.FoodAndDrink;
-import Models.Table;
 import Services.AccountService;
 
 public class ControllerMain {
@@ -25,28 +22,33 @@ public class ControllerMain {
             int choice = controllerLogin.loginView.menuLogin();
             switch (choice) {
                 case 1:
-                    choice1();
+                    choiceLogin();
                     break;
                 case 2:
-                    controllerLogin.accountService.addAccount(controllerLogin.accountService.createAccount());
+                    controllerLogin.choiceRegister();
                     break;
                 case 3:
                     System.out.println("Exit!!");
                     System.exit(0);
                     break;
+                default:
+                    System.out.println("No option !! choose again");
             }
         }
     }
 
-    public void choice1() {
+    public void choiceLogin() {
         if (controllerLogin.accountService.login()) {
+            System.out.println("Login success!");
             if (AccountService.account.getRights().equals("admin")) {
                 int choice = -1;
                 while (choice != 9) {
+                    System.out.println("Hello " + AccountService.account.getName() + "!!!");
                     choice = controllerMenu.menuMainView.menuAdmin();
                     switch (choice) {
                         case 1:
                             controllerMenu.menuMainService.chooseTable();
+                            break;
                         case 2:
                             controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
                             break;
@@ -60,13 +62,13 @@ public class ControllerMain {
                             choice5();
                             break;
                         case 6:
-                            choice6();
+                            controllerTable.choiceTable();
                             break;
                         case 7:
-                            choice7();
+                            controllerFoodAndDrink.choiceFoodAndDrink();
                             break;
                         case 8:
-                            choice8();
+                            controllerAccount.choiceAccount();
                             break;
                         case 9:
                             System.out.println("Sign out");
@@ -95,80 +97,10 @@ public class ControllerMain {
                     }
                 }
             }
-        }
+        } else System.out.println("Login fail. Try again!");
     }
+        public void choice5() {
 
-    public void choice5() {
-
-    }
-    public void choice6 (){
-        int choice = -1;
-        while (choice != 5){
-            choice = controllerTable.tableView.menuTable();
-            switch (choice){
-                case 1:
-                    controllerTable.tableService.addTable(controllerTable.tableService.createTable());
-                    break;
-                case 2:
-                    controllerTable.tableService.editTable(controllerTable.tableService.findIndex());
-                    break;
-                case 3:
-                    controllerTable.tableService.deleteTable(controllerTable.tableService.findIndex());
-                    break;
-                case 4:
-                    controllerTable.tableService.displayTable();
-                    break;
-                default:
-                    System.out.println("No option ! choose again");
-                    break;
-            }
         }
 
     }
-    public void choice7(){
-        int choice = -1;
-        while (choice != 5){
-            choice = controllerFoodAndDrink.foodAndDrinkView.menuFoodAndDrink();
-            switch (choice){
-                case 1:
-                    controllerFoodAndDrink.foodAndDrinkService.addFoodAndDrink(controllerFoodAndDrink.foodAndDrinkService.createFoodAndDrink());
-                    break;
-                case 2:
-                    controllerFoodAndDrink.foodAndDrinkService.editFoodAndDrink(controllerFoodAndDrink.foodAndDrinkService.findIndex());
-                    break;
-                case 3:
-                    controllerFoodAndDrink.foodAndDrinkService.deleteFoodAndDrink(controllerFoodAndDrink.foodAndDrinkService.findIndex());
-                    break;
-                case 4:
-                    controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
-                    break;
-                default:
-                    System.out.println("No option ! choose again");
-                    break;
-            }
-        }
-    }
-    public void choice8(){
-        int choice = -1;
-        while (choice != 5){
-            choice = controllerAccount.accountView.menuAccount();
-            switch (choice){
-                case 1:
-                    controllerAccount.accountService.addAccount(controllerAccount.accountService.createAccount());
-                    break;
-                case 2:
-                    controllerAccount.accountService.editAccount(controllerAccount.accountService.findIndex());
-                    break;
-                case 3:
-                    controllerAccount.accountService.deleteAccount(controllerAccount.accountService.findIndex());
-                    break;
-                case 4:
-                    controllerAccount.accountService.displayAccount();
-                    break;
-                default:
-                    System.out.println("No option ! choose again");
-                    break;
-            }
-        }
-    }
-}

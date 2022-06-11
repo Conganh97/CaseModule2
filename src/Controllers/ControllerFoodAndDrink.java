@@ -11,10 +11,9 @@ public class ControllerFoodAndDrink {
         foodAndDrinkView = new FoodAndDrinkView();
         foodAndDrinkService = new FoodAndDrinkService();
     }
-
-    public void menuFoodAndDrink (){
+    public void choiceFoodAndDrink(){
         int choice = -1;
-        while (choice != 5) {
+        while (choice != 5){
             choice = foodAndDrinkView.menuFoodAndDrink();
             switch (choice){
                 case 1:
@@ -29,8 +28,8 @@ public class ControllerFoodAndDrink {
                 case 4:
                     foodAndDrinkService.displayFoodAndDrink();
                     break;
-                case 5:
-                    System.out.println("Exit!!");
+                default:
+                    System.out.println("No option ! choose again");
                     break;
             }
         }

@@ -13,4 +13,7 @@ public class ControllerLogin {
         accountService = new AccountService();
         loginView = new LoginView();
     }
+    public void choiceRegister(){
+        accountService.addAccount(accountService.createAccount());
+    }
 }

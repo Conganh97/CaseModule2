@@ -12,9 +12,10 @@ public class ControllerTable {
         tableView = new TableView();
     }
 
-    public void menuTable (){
+
+    public void choiceTable (){
         int choice = -1;
-        while (choice != 5) {
+        while (choice != 5){
             choice = tableView.menuTable();
             switch (choice){
                 case 1:
@@ -29,8 +30,8 @@ public class ControllerTable {
                 case 4:
                     tableService.displayTable();
                     break;
-                case 5:
-                    System.out.println("Exit!!");
+                default:
+                    System.out.println("No option ! choose again");
                     break;
             }
         }

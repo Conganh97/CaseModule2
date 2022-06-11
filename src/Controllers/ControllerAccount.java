@@ -13,9 +13,9 @@ public class ControllerAccount {
         accountView = new AccountView();
     }
 
-    public void menuAccount (){
+    public void choiceAccount(){
         int choice = -1;
-        while (choice != 5) {
+        while (choice != 5){
             choice = accountView.menuAccount();
             switch (choice){
                 case 1:
@@ -30,8 +30,8 @@ public class ControllerAccount {
                 case 4:
                     accountService.displayAccount();
                     break;
-                case 5:
-                    System.out.println("Exit!!");
+                default:
+                    System.out.println("No option ! choose again");
                     break;
             }
         }

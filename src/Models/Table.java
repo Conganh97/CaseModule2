@@ -36,6 +36,12 @@ public class Table implements Serializable {
     public boolean isEmpty() {
         return isEmpty;
     }
+    public String isEmptyS() {
+        if (isEmpty){
+            return "Empty";
+        }else
+            return "Full";
+    }
 
     public void setEmpty(boolean empty) {
         isEmpty = empty;
