@@ -38,7 +38,7 @@ public class TableService {
 //    }
     public Table createTable(){
         System.out.println("Enter number of table: (Number of table must have 1-4 number and no letter)");
-        int numberTable = Integer.parseInt(ValiDate.validateNum(ValiDate.REGEX_NUM_1_4));
+        int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
         ArrayList <FoodAndDrink> foodAndDrinks = new ArrayList<>();
         return new Table(numberTable, foodAndDrinks, true);
     }
@@ -51,7 +51,7 @@ public class TableService {
 
     public int findIndex (){
         System.out.println("Enter number of table: (Number of table must have 1-4 number and no letter)");
-        int numberTable = Integer.parseInt(ValiDate.validateNum(ValiDate.REGEX_NUM_1_4));
+        int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
         for (int i = 0; i < tables.size() ; i++) {
             if (tables.get(i).getNumberTable() == numberTable ) {
                 return i;

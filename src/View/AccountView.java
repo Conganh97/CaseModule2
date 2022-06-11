@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class AccountView {
     Scanner sc = new Scanner(System.in);
     public int menuAccount (){
-        System.out.println("--------Menu Account-------");
         while (true){
             try {
+                System.out.println("--------Menu Account-------");
                 System.out.println("1.|Add account");
                 System.out.println("2.|Edit account");
                 System.out.println("3.|Delete account");

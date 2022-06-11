@@ -21,7 +21,7 @@ public class MenuMainService {
             System.out.println("------------------------------------------------------");
         }
         System.out.println("Please enter '0' if you want to exit!");
-        int choiceTable = Integer.parseInt(ValiDate.validateNum(ValiDate.REGEX_NUM));
+        int choiceTable = ValiDate.validateNum(ValiDate.REGEX_NUM);
         while (choiceTable != 0) {
                 int choiceFood;
                 do {
@@ -35,7 +35,7 @@ public class MenuMainService {
                         System.out.println("------------------------------------------------------");
                     }
                     System.out.println("Please enter '0' if you want to exit!");
-                    choiceFood = Integer.parseInt(ValiDate.validateNum(ValiDate.REGEX_NUM));
+                    choiceFood = ValiDate.validateNum(ValiDate.REGEX_NUM);
                     if (choiceFood == 0) break;
                     tableService.tables.get(choiceTable-1).getFoodAndDrinks().add(foodAndDrinkService.foodAndDrinks.get(choiceFood-1));
                 } while (choiceFood != 0);

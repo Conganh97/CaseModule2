@@ -81,9 +81,11 @@ public class ControllerMain {
             } else {
                 int choice = -1;
                 while (choice != 3) {
+                    System.out.println("Hello " + AccountService.account.getName() + "!!!");
                     choice = controllerMenu.menuMainView.menuUser();
                     switch (choice) {
                         case 1:
+                            controllerMenu.menuMainService.chooseTable();
                             break;
                         case 2:
                             controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();

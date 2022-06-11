@@ -5,6 +5,7 @@ import ValiDate.ValiDate;
 import io.ReadAndWrite;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AccountService {
@@ -15,7 +16,7 @@ public class AccountService {
 
     ReadAndWrite readAndWrite = new ReadAndWrite();
 //    {
-//        accounts.add(new Account("Admin","admin","admin","admin","admin"));
+//        accounts.add(new Account("Admin","admin1","admin1","admin@gmail.com","admin"));
 //        readAndWrite.write(accounts,"account.csv");
 //    }
 
@@ -83,7 +84,7 @@ public class AccountService {
         System.out.println("Enter user name need search (User name must have 6-10 letter include letters and numbers)");
         String user = ValiDate.validateString(ValiDate.REGEX_ACCOUNT);
         for (int i = 0; i < accounts.size(); i++) {
-            if (accounts.get(i).getUserName().equals(user)) return i;
+            if (accounts.get(i).getUserName().toLowerCase(Locale.ROOT).equals(user.toLowerCase(Locale.ROOT))) return i;
         } return -1;
     }
 

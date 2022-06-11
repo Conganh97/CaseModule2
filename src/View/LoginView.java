@@ -6,9 +6,9 @@ public class LoginView {
     Scanner sc = new Scanner(System.in);
 
     public int menuLogin (){
-        System.out.println("---------Menu login--------");
         while (true){
             try {
+                System.out.println("---------Menu login--------");
                 System.out.println("1.|Login");
                 System.out.println("2.|Register");
                 System.out.println("3.|Exit");

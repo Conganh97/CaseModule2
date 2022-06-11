@@ -5,6 +5,7 @@ import ValiDate.ValiDate;
 import io.ReadAndWrite;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class FoodAndDrinkService {
@@ -18,16 +19,16 @@ public class FoodAndDrinkService {
     }
 
 //    {
-//        foodAndDrinks.add(new FoodAndDrink("SC","Spaghetti Classic",100,40));
-//        foodAndDrinks.add(new FoodAndDrink("SB","Spaghetti Bolognese",100,50));
+//        foodAndDrinks.add(new FoodAndDrink("SCL","Spaghetti Classic",100,40));
+//        foodAndDrinks.add(new FoodAndDrink("SBO","Spaghetti Bolognese",100,50));
 //        foodAndDrinks.add(new FoodAndDrink("SCA","Spaghetti Carbonara",100,40));
-//        foodAndDrinks.add(new FoodAndDrink("PS","Pizza Seafood",100,80));
-//        foodAndDrinks.add(new FoodAndDrink("PB","Pizza Beef",100,80));
+//        foodAndDrinks.add(new FoodAndDrink("PSE","Pizza Seafood",100,80));
+//        foodAndDrinks.add(new FoodAndDrink("PBE","Pizza Beef",100,80));
 //        foodAndDrinks.add(new FoodAndDrink("TBS","Top Blade Steak",100,200));
-//        foodAndDrinks.add(new FoodAndDrink("TS","Tenderloin Steak",100,300));
-//        foodAndDrinks.add(new FoodAndDrink("PS","Pepsi",100,20));
-//        foodAndDrinks.add(new FoodAndDrink("MJ","Lemon Juice",100,25));
-//        foodAndDrinks.add(new FoodAndDrink("PT","Peach Tea",100,30));
+//        foodAndDrinks.add(new FoodAndDrink("TST","Tenderloin Steak",100,300));
+//        foodAndDrinks.add(new FoodAndDrink("PSI","Pepsi",100,20));
+//        foodAndDrinks.add(new FoodAndDrink("MJU","Lemon Juice",100,25));
+//        foodAndDrinks.add(new FoodAndDrink("PTE","Peach Tea",100,30));
 //        readAndWrite.write(foodAndDrinks,"foodanddrink.csv");
 //    }
 
@@ -37,9 +38,9 @@ public class FoodAndDrinkService {
         System.out.println("Enter name: (Name must have at least 1 uppercase letter and no number)");
         String name = ValiDate.validateString(ValiDate.REGEX_STRING);
         System.out.println("Enter amount: (Amount must have 1-4 number and no letter) ");
-        int amount = Integer.parseInt(ValiDate.validateString(ValiDate.REGEX_NUM_1_4));
+        int amount = Integer.parseInt(ValiDate.validateString(ValiDate.REGEX_NUMB));
         System.out.println("Enter price: (Price must have 1-4 number and no letter) ");
-        float price = Float.parseFloat(ValiDate.validateString(ValiDate.REGEX_NUM_1_4));
+        float price = Float.parseFloat(ValiDate.validateString(ValiDate.REGEX_NUMB));
         return new FoodAndDrink(id,name, amount, price);
     }
 
@@ -53,7 +54,7 @@ public class FoodAndDrinkService {
         System.out.println("Enter name need search: (Name must have at least 1 uppercase letter and no number) ");
         String name = ValiDate.validateString(ValiDate.REGEX_STRING);
         for (int i = 0; i < foodAndDrinks.size() ; i++) {
-            if (foodAndDrinks.get(i).getName().equals(name)) {
+            if (foodAndDrinks.get(i).getName().toLowerCase(Locale.ROOT).equals(name.toLowerCase(Locale.ROOT))) {
                 return i;
             }
         } return -1;

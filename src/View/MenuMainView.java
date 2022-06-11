@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class MenuMainView {
     Scanner sc = new Scanner(System.in);
     public int menuAdmin (){
-        System.out.println("--------Menu admin-------");
         while (true){
             try {
+                System.out.println("--------Menu admin-------");
                 System.out.println("1.|Choose table");
                 System.out.println("2.|Display menu");
                 System.out.println("3.|Display table");
@@ -26,9 +26,9 @@ public class MenuMainView {
     }
 
     public int menuUser (){
-        System.out.println("--------Menu staff-------");
         while (true){
             try {
+                System.out.println("--------Menu staff-------");
                 System.out.println("1.|Choose table");
                 System.out.println("2.|Display menu");
                 System.out.println("3.|Sign out");

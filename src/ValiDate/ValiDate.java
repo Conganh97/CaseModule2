@@ -3,7 +3,7 @@ package ValiDate;
 import java.util.Scanner;
 
 public class ValiDate {
-    public static final String REGEX_STRING = "[A-Z][A-Za-z]+";
+    public static final String REGEX_STRING = "[A-Z][\\sA-Za-z]+";
 
     public static final String REGEX_ID_FAD = "[A-Z]{3}";
     public static final String REGEX_ACCOUNT = "[A-Za-z0-9]{6,10}";
@@ -11,7 +11,7 @@ public class ValiDate {
 
     public static final String regexpassword = "[A-Za-z0-9]+";
 
-    public static final String REGEX_NUM_1_4 = "[0-9]{1-4}";
+    public static final String REGEX_NUMB = "[0-9]{1,4}";
     public static final String regexaddress = "[A-Za-z0-9]+";
     public static final String regexage = "[0-9][0-9]";
     public static final String regexid = "[0-9]{12}";
@@ -164,11 +164,11 @@ public class ValiDate {
 //            }
 //        }
 //    }
-    public static String validateNum(String regex) {
+    public static int validateNum(String regex) {
         while (true) {
             String choice = scanner.nextLine();
             if (choice.matches(regex)) {
-                return choice;
+                return Integer.parseInt(choice);
             } else System.err.println("Enter the wrong format, re-enter :");
         }
     }

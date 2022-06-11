@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class TableView {
     Scanner sc = new Scanner(System.in);
     public int menuTable (){
-        System.out.println("--------Menu table-------");
         while (true){
             try {
+                System.out.println("--------Menu table-------");
                 System.out.println("1.|Add table");
                 System.out.println("2.|Edit table");
                 System.out.println("3.|Delete table");
