@@ -59,7 +59,7 @@ public class ControllerMain {
                             controllerAccount.accountService.displayAccount();
                             break;
                         case 5:
-                            choice5();
+                            controllerMenu.menuMainService.choicePay();
                             break;
                         case 6:
                             controllerTable.choiceTable();
@@ -101,8 +101,4 @@ public class ControllerMain {
             }
         } else System.out.println("Login fail. Try again!");
     }
-        public void choice5() {
-
-        }
-
-    }
+}

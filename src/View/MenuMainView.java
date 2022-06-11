@@ -12,7 +12,7 @@ public class MenuMainView {
                 System.out.println("2.|Display menu");
                 System.out.println("3.|Display table");
                 System.out.println("4.|Display account");
-                System.out.println("5.|Check turnover ");
+                System.out.println("5.|Pay");
                 System.out.println("6.|Edit table");
                 System.out.println("7.|Edit menu");
                 System.out.println("8.|Edit account");

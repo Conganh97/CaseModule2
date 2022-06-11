@@ -43,6 +43,28 @@ public class TableService {
         return new Table(numberTable, foodAndDrinks, true);
     }
 
+    public Table editTable (){
+        System.out.println("Enter new number of table: (Number of table must have 1-4 number and no letter)");
+        int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
+        ArrayList <FoodAndDrink> foodAndDrinks = new ArrayList<>();
+        System.out.println("Enter table's status ?");
+        System.out.println("1.|Empty");
+        System.out.println("2.|Full");
+        final String regex = "[1-2]";
+        boolean isEmpty;
+        int choice;
+        while (true){
+            try {
+                choice = ValiDate.validateNum(regex);
+                if (choice == 1) isEmpty = true;
+                else isEmpty = false;
+                return new Table(numberTable, foodAndDrinks,isEmpty);
+            } catch (Exception e){
+                System.err.println("Please enter 1 or 2");;
+            }
+        }
+    }
+
     public void addTable (Table table){
         tables.add(table);
         System.out.println("Add table " + table.getNumberTable() + " success");
@@ -80,8 +102,8 @@ public class TableService {
 
     public void editTable(int index){
         if (index != -1 ){
-            System.out.println("Edit table " + index +":");
-            tables.set(index,createTable());
+            System.out.println("Edit table " + (index + 1) +":");
+            tables.set(index,editTable());
             readAndWrite.write(tables,"table.csv");
             System.out.println("Edit table success");
         } else System.out.println("This table not exist!");
