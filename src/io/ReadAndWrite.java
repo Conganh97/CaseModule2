@@ -17,7 +17,6 @@ public class ReadAndWrite<E> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public ArrayList<E> read(ArrayList<Account> accounts, String path){
@@ -31,4 +30,5 @@ public class ReadAndWrite<E> {
         }
         return new ArrayList<>();
     }
+
 }

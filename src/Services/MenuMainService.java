@@ -12,10 +12,9 @@ public class MenuMainService {
     Scanner sc = new Scanner(System.in);
 
     public void chooseTable() {
-
         displayTable();
-        int choiceTable = ValiDate.validateNum(ValiDate.REGEX_NUM);
-        while (choiceTable != 0) {
+        int choiceTable = ValiDate.validateTable();
+        while (choiceTable != 0 ) {
             int choiceFood = 99;
             do {
                 displayDish();
