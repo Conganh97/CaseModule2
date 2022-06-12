@@ -21,18 +21,13 @@ public class ControllerMain {
         while (true) {
             int choice = controllerLogin.loginView.menuLogin();
             switch (choice) {
-                case 1:
-                    choiceLogin();
-                    break;
-                case 2:
-                    controllerLogin.choiceRegister();
-                    break;
-                case 3:
+                case 1 -> choiceLogin();
+                case 2 -> controllerLogin.choiceRegister();
+                case 3 -> {
                     System.out.println("Exit!!");
                     System.exit(0);
-                    break;
-                default:
-                    System.out.println("No option !! choose again");
+                }
+                default -> System.out.println("No option !! choose again");
             }
         }
     }
@@ -46,36 +41,16 @@ public class ControllerMain {
                     System.out.println("Hello " + AccountService.account.getName() + "!!!");
                     choice = controllerMenu.menuMainView.menuAdmin();
                     switch (choice) {
-                        case 1:
-                            controllerMenu.menuMainService.chooseTable();
-                            break;
-                        case 2:
-                            controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
-                            break;
-                        case 3:
-                            controllerTable.tableService.displayTable();
-                            break;
-                        case 4:
-                            controllerAccount.accountService.displayAccount();
-                            break;
-                        case 5:
-                            controllerMenu.menuMainService.choicePay();
-                            break;
-                        case 6:
-                            controllerTable.choiceTable();
-                            break;
-                        case 7:
-                            controllerFoodAndDrink.choiceFoodAndDrink();
-                            break;
-                        case 8:
-                            controllerAccount.choiceAccount();
-                            break;
-                        case 9:
-                            System.out.println("Sign out");
-                            break;
-                        default:
-                            System.out.println("No option ! choose again");
-                            break;
+                        case 1 -> controllerMenu.menuMainService.chooseTable();
+                        case 2 -> controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
+                        case 3 -> controllerTable.tableService.displayTable();
+                        case 4 -> controllerAccount.accountService.displayAccount();
+                        case 5 -> controllerMenu.menuMainService.choicePay();
+                        case 6 -> controllerTable.choiceTable();
+                        case 7 -> controllerFoodAndDrink.choiceFoodAndDrink();
+                        case 8 -> controllerAccount.choiceAccount();
+                        case 9 -> System.out.println("Sign out");
+                        default -> System.out.println("No option ! choose again");
                     }
                 }
             } else {
@@ -84,18 +59,10 @@ public class ControllerMain {
                     System.out.println("Hello " + AccountService.account.getName() + "!!!");
                     choice = controllerMenu.menuMainView.menuUser();
                     switch (choice) {
-                        case 1:
-                            controllerMenu.menuMainService.chooseTable();
-                            break;
-                        case 2:
-                            controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
-                            break;
-                        case 3:
-                            System.out.println("Sign out");
-                            break;
-                        default:
-                            System.out.println("No option ! choose again");
-                            break;
+                        case 1 -> controllerMenu.menuMainService.chooseTable();
+                        case 2 -> controllerFoodAndDrink.foodAndDrinkService.displayFoodAndDrink();
+                        case 3 -> System.out.println("Sign out");
+                        default -> System.out.println("No option ! choose again");
                     }
                 }
             }

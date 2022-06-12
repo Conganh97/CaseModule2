@@ -1,5 +1,7 @@
 package View;
 
+import Services.MenuMainService;
+
 import java.util.Scanner;
 
 public class MenuMainView {
@@ -8,6 +10,7 @@ public class MenuMainView {
         while (true){
             try {
                 System.out.println("--------Menu admin-------");
+                System.out.println("Restaurant revenue :" + MenuMainService.restaurantRevenue);
                 System.out.println("1.|Choose table");
                 System.out.println("2.|Display menu");
                 System.out.println("3.|Display table");
