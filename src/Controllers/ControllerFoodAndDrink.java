@@ -15,22 +15,13 @@ public class ControllerFoodAndDrink {
         int choice = -1;
         while (choice != 5){
             choice = foodAndDrinkView.menuFoodAndDrink();
-            switch (choice){
-                case 1:
-                    foodAndDrinkService.addFoodAndDrink(foodAndDrinkService.createFoodAndDrink());
-                    break;
-                case 2:
-                    foodAndDrinkService.editFoodAndDrink(foodAndDrinkService.findIndex());
-                    break;
-                case 3:
-                    foodAndDrinkService.deleteFoodAndDrink(foodAndDrinkService.findIndex());
-                    break;
-                case 4:
-                    foodAndDrinkService.displayFoodAndDrink();
-                    break;
-                default:
-                    System.out.println("No option ! choose again");
-                    break;
+            switch (choice) {
+                case 1 -> foodAndDrinkService.addFoodAndDrink(foodAndDrinkService.createFoodAndDrink());
+                case 2 -> foodAndDrinkService.editFoodAndDrink(foodAndDrinkService.findIndex());
+                case 3 -> foodAndDrinkService.deleteFoodAndDrink(foodAndDrinkService.findIndex());
+                case 4 -> foodAndDrinkService.displayFoodAndDrink();
+                case 5 -> System.out.println("Back menu!");
+                default -> System.out.println("No option ! choose again");
             }
         }
     }

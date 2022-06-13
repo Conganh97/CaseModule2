@@ -17,22 +17,13 @@ public class ControllerTable {
         int choice = -1;
         while (choice != 5){
             choice = tableView.menuTable();
-            switch (choice){
-                case 1:
-                    tableService.addTable(tableService.createTable());
-                    break;
-                case 2:
-                    tableService.editTable(tableService.findIndex());
-                    break;
-                case 3:
-                    tableService.deleteTable(tableService.findIndex());
-                    break;
-                case 4:
-                    tableService.displayTable();
-                    break;
-                default:
-                    System.out.println("No option ! choose again");
-                    break;
+            switch (choice) {
+                case 1 -> tableService.addTable(tableService.createTable());
+                case 2 -> tableService.editTable(tableService.findIndex());
+                case 3 -> tableService.deleteTable(tableService.findIndex());
+                case 4 -> tableService.displayTable();
+                case 5 -> System.out.println("Back menu!");
+                default -> System.out.println("No option ! choose again");
             }
         }
     }

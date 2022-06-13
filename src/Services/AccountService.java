@@ -84,7 +84,7 @@ public class AccountService {
         System.out.println("Enter user name need search (User name must have 6-10 letter include letters and numbers)");
         String user = ValiDate.validateString(ValiDate.REGEX_ACCOUNT);
         for (int i = 0; i < accounts.size(); i++) {
-            if (accounts.get(i).getUserName().toLowerCase(Locale.ROOT).equals(user.toLowerCase(Locale.ROOT))) return i;
+            if (accounts.get(i).getUserName().equals(user)) return i;
         } return -1;
     }
 
@@ -113,6 +113,13 @@ public class AccountService {
             accounts.set(index,createAccount());
             System.out.println("Edit account success");
             readAndWrite.write(accounts,"account.csv");
+        } else System.out.println("This account not exist");
+    }
+    public void upRight(int index){
+        if (index != - 1) {
+            if (accounts.get(index).getRights().equals("admin")) {
+                accounts.get(index).setRights("user");
+            } else accounts.get(index).setRights("admin");
         } else System.out.println("This account not exist");
     }
 }

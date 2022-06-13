@@ -1,7 +1,11 @@
 package ValiDate;
 
+import Models.FoodAndDrink;
+import Models.Table;
+import Services.FoodAndDrinkService;
 import Services.TableService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ValiDate {
@@ -14,7 +18,7 @@ public class ValiDate {
     public static final String REGEX_NUM = "[0-9]+";
     static Scanner scanner = new Scanner(System.in);
 
-    public static String validateString (String regex){
+    public static String validateString(String regex) {
         while (true) {
             String name = scanner.nextLine();
             if (name.matches(regex)) {
@@ -33,14 +37,43 @@ public class ValiDate {
         }
     }
 
-    public static int validateTable(){
-        while (true){
+    public static int validateChooseTable() {
+        while (true) {
             try {
                 int choiceTable = ValiDate.validateNum(ValiDate.REGEX_NUM);
-                if ( choiceTable > TableService.tables.size()) throw new Exception();
                 return choiceTable;
             } catch (Exception e) {
                 System.err.println("The table doesn't exist");
+            }
+        }
+    }
+
+    public static int valaidateTableNum() {
+        while (true) {
+            try {
+                System.out.println("Enter number of table: (Number of table must have 1-4 number and no letter)");
+                int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
+                for (int i = 0; i < TableService.tables.size(); i++) {
+                    if (TableService.tables.get(i).getNumberTable() == numberTable) throw new Exception();
+                }
+                return numberTable;
+            } catch (Exception e) {
+                System.err.println("Number of table is exist! Enter again");
+            }
+        }
+    }
+
+    public static String validateIdFAD() {
+        while (true) {
+            try {
+                System.out.println("Enter id: (Id must be in the form ABC, include letters and no numbers) ");
+                String id = ValiDate.validateString(ValiDate.REGEX_ID_FAD);
+                for (int i = 0; i < FoodAndDrinkService.foodAndDrinks.size(); i++) {
+                    if (FoodAndDrinkService.foodAndDrinks.get(i).getId().equals(id)) throw new Exception();
+                }
+                return id;
+            } catch (Exception e) {
+                System.err.println("Id food and drink is exist! Enter again");
             }
         }
     }

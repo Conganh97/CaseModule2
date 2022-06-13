@@ -37,15 +37,14 @@ public class TableService {
 //        readAndWrite.write(tables,"table.csv");
 //    }
     public Table createTable(){
-        System.out.println("Enter number of table: (Number of table must have 1-4 number and no letter)");
-        int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
+        int numberTable = ValiDate.valaidateTableNum();
         ArrayList <FoodAndDrink> foodAndDrinks = new ArrayList<>();
         return new Table(numberTable, foodAndDrinks, true);
     }
 
+
     public Table editTable (){
-        System.out.println("Enter new number of table: (Number of table must have 1-4 number and no letter)");
-        int numberTable = ValiDate.validateNum(ValiDate.REGEX_NUMB);
+        int numberTable = ValiDate.valaidateTableNum();
         ArrayList <FoodAndDrink> foodAndDrinks = new ArrayList<>();
         System.out.println("Enter table's status ?");
         System.out.println("1.|Empty");
@@ -102,7 +101,7 @@ public class TableService {
 
     public void editTable(int index){
         if (index != -1 ){
-            System.out.println("Edit table " + (index + 1) +":");
+            System.out.println("Edit table " + tables.get(index).getNumberTable() +":");
             tables.set(index,editTable());
             readAndWrite.write(tables,"table.csv");
             System.out.println("Edit table success");

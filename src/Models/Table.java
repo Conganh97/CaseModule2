@@ -9,6 +9,8 @@ public class Table implements Serializable {
     private boolean isEmpty;
     private int customerQuantity;
 
+    public static float restaurantRevenue;
+
     public Table (int numberTable, ArrayList<FoodAndDrink> foodAndDrinks, boolean isEmpty) {
         this.numberTable = numberTable;
         this.foodAndDrinks = foodAndDrinks;

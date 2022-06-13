@@ -11,7 +11,6 @@ public class ReadAndWrite<E> {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(list);
-
             objectOutputStream.close();
             fileOutputStream.close();
         } catch (IOException e) {
@@ -26,7 +25,7 @@ public class ReadAndWrite<E> {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             return (ArrayList<E>) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Error!!!");
         }
         return new ArrayList<>();
     }

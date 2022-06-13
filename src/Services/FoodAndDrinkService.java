@@ -33,8 +33,7 @@ public class FoodAndDrinkService {
 //    }
 
     public FoodAndDrink createFoodAndDrink(){
-        System.out.println("Enter id: (Id must be in the form ABC, include letters and no numbers) ");
-        String id = ValiDate.validateString(ValiDate.REGEX_ID_FAD);
+        String id = ValiDate.validateIdFAD();
         System.out.println("Enter name: (Name must have at least 1 uppercase letter and no number)");
         String name = ValiDate.validateString(ValiDate.REGEX_STRING);
         System.out.println("Enter amount: (Amount must have 1-4 number and no letter) ");
